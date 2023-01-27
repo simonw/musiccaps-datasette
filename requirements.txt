@@ -1,0 +1,5 @@
+datasette
+sqlite-utils
+datasette-publish-vercel
+datasette-youtube-embed
+datasette-json-html

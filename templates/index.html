@@ -1,0 +1,24 @@
+{% extends "default:index.html" %}
+
+{% block description_source_license %}
+<p>Search the captions in the MusicCaps dataset
+<form action="/musiccaps/musiccaps_details">
+    <input type="search" name="_search">
+    <input type="hidden" name="_facet_array" value="musiccaps_names">
+    <input type="hidden" name="_facet_array" value="musiccaps_aspects">
+    <input type="hidden" name="_facet" value="musiccaps_author">
+    <input type="hidden" name="_fts_table" value="musiccaps_fts">
+    <input type="hidden" name="_fts_pk" value="musiccaps_rowid">
+    <input type="submit" value="Search">
+</form>
+<p style="margin-top: 0.5em">Example searches:
+    {% for search in ["opera", "ballad", "guitar", "whimsical"] %}
+        <a href="/musiccaps/musiccaps_details?_search={{ search }}&_facet_array=musiccaps_names&_facet_array=musiccaps_aspects&_facet=musiccaps_author&_fts_table=musiccaps_fts&_fts_pk=musiccaps_rowid">{{ search }}</a
+        >{% if not loop.last %}, {% endif %}
+    {% endfor %}
+</p>
+
+
+</p>
+{% include "_description_source_license.html" %}
+{% endblock %}
